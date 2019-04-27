@@ -75,10 +75,12 @@ class FenetrePrincipale(Tk):
 
             self.partie.grille.jouer_coup(colonne, couleur)
             self.canvas_jeu.actualiser()
+            Tk.update(self)
 
             if self.partie.partie_terminee():
                 self.partie.grille.surligner_sequence_gagnante()
                 self.canvas_jeu.actualiser()
+                Tk.update(self)
                 self.recommencer_partie()
             else:
                 self.partie.changer_joueur()
