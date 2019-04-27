@@ -66,7 +66,6 @@ class FenetrePrincipale(Tk):
         self.resizable(0,0)
 
 
-
     def selectioner_case(self, event): #capturar posicao do clique!!
 
         colonne = event.x // self.canvas_jeu.nb_pixels_par_case
@@ -80,6 +79,8 @@ class FenetrePrincipale(Tk):
 
             if self.partie.partie_terminee():
                 if self.partie.traitement_fin_partie():
+                    self.canvas_jeu.actualiser()
+                    Tk.update(self)
                     messagebox.showinfo("Fin de la partie", "Le gagnant de la partie est le joueur {}! "
                                         .format(self.partie.couleur_joueur_courant))
                 else:

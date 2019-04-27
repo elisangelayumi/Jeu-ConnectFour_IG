@@ -13,7 +13,7 @@ from interface.interface_connectfour import FenetrePrincipale
 if __name__ == '__main__':
 
 
-    fenetre = FenetrePrincipale("partie_nulle.txt")
+    fenetre = FenetrePrincipale()
 
     fenetre.mainloop()
 
