@@ -59,6 +59,7 @@ class FenetrePrincipale(Tk):
         self.canvas_jeu = CanvasConnect4(self, self.partie.grille)
         self.canvas_jeu.grid(sticky=NSEW)
         self.canvas_jeu.bind("<Button-1>", self.selectioner_case)  # para capturar a posicao do clique
+        self.canvas_jeu.actualiser()
 
         #format
         self.geometry("980x840")
@@ -78,7 +79,12 @@ class FenetrePrincipale(Tk):
             Tk.update(self)
 
             if self.partie.partie_terminee():
-                self.partie.grille.surligner_sequence_gagnante()
+                if self.partie.traitement_fin_partie():
+                    messagebox.showinfo("Fin de la partie", "Le gagnant de la partie est le joueur {}! "
+                                        .format(self.partie.couleur_joueur_courant))
+                else:
+                    messagebox.showinfo("Fin de la partie", "match nul!")
+
                 self.canvas_jeu.actualiser()
                 Tk.update(self)
                 self.recommencer_partie()
@@ -90,13 +96,6 @@ class FenetrePrincipale(Tk):
 
 
     def recommencer_partie(self ):
-
-
-        if self.partie.traitement_fin_partie():
-            messagebox.showinfo("Fin de la partie", "Le gagnant de la partie est le joueur {}! "
-                                .format(self.partie.couleur_joueur_courant))
-        else:
-            messagebox.showinfo("Fin de la partie", "match nul!")
 
 
         if messagebox.askyesno("Recommencer", "Desirez-vous lancer une nouvelle partie? "):

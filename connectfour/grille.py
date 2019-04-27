@@ -401,7 +401,7 @@ class Grille:
         '''
 
         self.cases = self.initialiser_cases_par_defaut()
-        chaque_ligne = chaine.split("\n") [:-1]
+        chaque_ligne = chaine.split("\n")
         for element in chaque_ligne:
             liste_chaque_ligne = element.split(",")
             position = (int(liste_chaque_ligne[0]), int(liste_chaque_ligne[1]))

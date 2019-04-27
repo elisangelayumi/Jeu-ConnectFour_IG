@@ -215,8 +215,8 @@ class PartieConnectFour:
             myline = mon_fichier.read().splitlines()
 
 
-        self.joueur_jaune = self.creer_joueur_selon_type(myline[1],"jaune")
-        self.joueur_rouge = self.creer_joueur_selon_type(myline[2], "rouge")
+        self.joueur_jaune = self.creer_joueur("jaune")
+        self.joueur_rouge = self.creer_joueur("rouge")
         self.couleur_joueur_courant = myline[0]
 
         if self.couleur_joueur_courant == "jaune":
